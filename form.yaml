@@ -1,0 +1,136 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: application-group
+---
+apiVersion: widgets.templates.krateo.io/v1beta1
+kind: NavMenuItem
+metadata:
+  name: deployments-nav-item
+  namespace: krateo-system
+spec:
+  widgetData:
+    allowedResources:
+      - pages
+    resourceRefId: deployments-page
+    label: "Deployments"
+    icon: "fa-cube"
+    path: "/deployments"
+  resourcesRefs:
+    items:
+      - id: deployments-page
+        apiVersion: widgets.templates.krateo.io/v1beta1
+        name: deployments-page
+        namespace: krateo-system
+        resource: pages
+        verb: GET
+---
+apiVersion: widgets.templates.krateo.io/v1beta1
+kind: Page
+metadata:
+  name: deployments-page
+  namespace: krateo-system
+spec:
+  widgetData:
+    allowedResources:
+      - forms
+    items:
+      - resourceRefId: deployment-creation-form
+  resourcesRefs:
+    items:
+      - id: deployment-creation-form
+        apiVersion: widgets.templates.krateo.io/v1beta1
+        name: jb-0108-update-form
+        namespace: application-group  
+        resource: forms
+        verb: GET
+---
+kind: Form
+apiVersion: widgets.templates.krateo.io/v1beta1
+metadata:
+  name: jb-0108-update-form
+  namespace: application-group
+spec:
+  widgetData:
+    schema: {}
+    submitActionId: update-action-from-string-schema
+    actions:  
+      rest:
+        - id: update-action-from-string-schema
+          onEventNavigateTo:
+            eventReason: "CompositionUpdated"
+            url: '${ "/compositions/" + .response.metadata.namespace + "/" + .response.metadata.namespace + "/" + .response.metadata.name }'
+            timeout: 50
+          successMessage: '${"Successfully updated " + .response.metadata.name + " composition in namespace " + .response.metadata.namespace }'
+          resourceRefId: composition-to-patch
+          type: rest
+          payloadToOverride:
+          - name: spec
+            value: ${ .json }
+          headers:
+          - "Content-Type: application/merge-patch+json"
+  widgetDataTemplate:
+    - forPath: stringSchema
+      expression: ${ .getNotOrderedSchema }
+    - forPath: initialValues
+      expression: ${ .getCompositionSpec }
+  resourcesRefs:
+    items:
+    - id: composition-to-patch
+      apiVersion: composition.krateo.io/vv1-5-0-rc-5
+      namespace: application-group
+      name: jb-0108
+      resource: applicationgroups
+      verb: PATCH
+  apiRef:
+    name: jb-0108-composition-edit
+    namespace: application-group
+---
+apiVersion: templates.krateo.io/v1
+kind: RESTAction
+metadata:
+  name: jb-0108-composition-edit
+  namespace: application-group  
+spec:
+  api:
+  - filter: .getCompositionSpec | .spec
+    name: getCompositionSpec
+    path: /apis/composition.krateo.io/vv1-5-0-rc-5/namespaces/application-group/applicationgroups/jb-0108
+    verb: GET
+  - filter: '.getCompositionMetadata | .metadata | {name: .name, namespace: .namespace}'
+    name: getCompositionMetadata
+    path: /apis/composition.krateo.io/vv1-5-0-rc-5/namespaces/application-group/applicationgroups/jb-0108
+    verb: GET
+  - filter: |
+      .getOrderedSchema.spec.versions[] | select(.name == "vv1-5-0-rc-5") | .schema.openAPIV3Schema.properties.spec
+    name: getOrderedSchema
+    path: ${ "/apis/apiextensions.k8s.io/v1/customresourcedefinitions/applicationgroups.composition.krateo.io"}
+    verb: GET
+  - filter: '[.namespaces.items[] | .metadata.name]'
+    name: namespaces
+    path: /api/v1/namespaces
+    verb: GET
+  - continueOnError: true
+    dependsOn:
+      iterator: .namespaces
+      name: namespaces
+    filter: |
+      if (.getCompositionDefinitionNamespace | type) == "array" then
+
+        [.getCompositionDefinitionNamespace[]?.items[]?]
+      elif (.getCompositionDefinitionNamespace | type) == "object" then
+
+        [.getCompositionDefinitionNamespace.items[]?]
+      else
+
+        []
+      end | map(select(.status.resource == "applicationgroups")) | map(.metadata.namespace)
+    name: getCompositionDefinitionNamespace
+    path: ${ "/apis/core.krateo.io/v1alpha1/namespaces/" + (.) + "/compositiondefinitions"}
+  - dependsOn:
+      name: getCompositionDefinitionNamespace
+    filter: |
+      .getNotOrderedSchema.data["values.schema.json"]
+    name: getNotOrderedSchema
+    path: ${ "/api/v1/namespaces/"+ (.getCompositionDefinitionNamespace[0]) + "/configmaps/applicationgroups-vv1-5-0-rc-5-jsonschema-configmap" }
+    verb: GET
