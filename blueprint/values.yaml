@@ -1,0 +1,12 @@
+applicationGroupDisplayName: "My Application Group"
+applicationGroupName: "my-application-group"
+applicationName: "my-application"
+policyPrApprovers: false
+permissions:
+  - "read"
+  - "write"
+  - "execute"
+developersList:
+  - "alice"
+  - "bob"
+  - "charlie"

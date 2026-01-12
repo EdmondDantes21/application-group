@@ -1,0 +1,9 @@
+apiVersion: core.krateo.io/v1alpha1
+kind: CompositionDefinition
+metadata:
+  name: application-group
+  namespace: krateo-system
+spec:
+  chart:
+    url: oci://ghcr.io/edmonddantes21/application-group/application-group
+    version: "v1-5-0-rc-5"

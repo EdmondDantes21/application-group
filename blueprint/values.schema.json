@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "applicationGroupDisplayName": {
+      "default": "My Application Group",
+      "title": "applicationGroupDisplayName",
+      "type": "string"
+    },
+    "applicationGroupName": {
+      "default": "my-application-group",
+      "title": "applicationGroupName",
+      "type": "string"
+    },
+    "applicationName": {
+      "default": "my-application",
+      "title": "applicationName",
+      "type": "string"
+    },
+    "developersList": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "title": "developersList",
+      "type": "array"
+    },
+    "permissions": {
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "title": "permissions",
+      "type": "array"
+    },
+    "policyPrApprovers": {
+      "default": false,
+      "title": "policyPrApprovers",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "applicationGroupDisplayName",
+    "applicationGroupName",
+    "applicationName",
+    "policyPrApprovers",
+    "permissions",
+    "developersList"
+  ],
+  "type": "object"
+}
