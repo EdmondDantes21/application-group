@@ -5,18 +5,15 @@
   "properties": {
     "applicationGroupDisplayName": {
       "type": "string",
-      "title": "applicationGroupDisplayName",
-      "default": "My Application Group"
+      "title": "applicationGroupDisplayName"
     },
     "applicationGroupName": {
       "type": "string",
-      "title": "applicationGroupName",
-      "default": "my-application-group"
+      "title": "applicationGroupName"
     },
     "applicationName": {
       "type": "string",
-      "title": "applicationName",
-      "default": "my-application"
+      "title": "applicationName"
     },
     "developersList": {
       "type": "array",
@@ -34,8 +31,7 @@
     },
     "policyPrApprovers": {
       "type": "boolean",
-      "title": "policyPrApprovers",
-      "default": false
+      "title": "policyPrApprovers"
     }
   },
   "required": [
