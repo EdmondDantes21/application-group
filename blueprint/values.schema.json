@@ -4,41 +4,58 @@
   "properties": {
     "applicationGroupDisplayName": {
       "type": "string",
-      "title": "applicationGroupDisplayName"
+      "minLength": 1,
+      "maxLength": 30,
+      "description": "Display name for Application Group"
     },
     "applicationGroupName": {
       "type": "string",
-      "title": "applicationGroupName"
+      "minLength": 1,
+      "maxLength": 30,
+      "description": "Name of the Application Group"
     },
     "applicationName": {
       "type": "string",
-      "title": "applicationName"
+      "maxLength": 50,
+      "description": "Name of the Application for CmdBuild Component"
     },
     "developersList": {
       "type": "array",
-      "title": "developersList",
+      "description": "List of developers' mail addresses",
       "items": {
         "type": "string"
       }
     },
     "permissions": {
       "type": "array",
-      "title": "permissions",
+      "description": "List of users (displayName of AD Group) to give permissions to",
       "items": {
         "type": "string"
       }
     },
     "policyPrApprovers": {
       "type": "boolean",
-      "title": "policyPrApprovers"
+      "description": "If `true` set policy on Azure DevOps to require approvers for a PR",
+      "default": false
+    },
+    "prApproversList": {
+      "type": "array",
+      "description": "List of PR Approvers' mail addresses",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approversList": {
+      "type": "array",
+      "description": "List of Approvers' mail addresses",
+      "items": {
+        "type": "string"
+      }
     }
   },
   "required": [
-    "applicationGroupDisplayName",
-    "applicationGroupName",
-    "applicationName",
-    "developersList",
-    "permissions",
-    "policyPrApprovers"
-  ]
+      "applicationGroupName",
+      "applicationGroupDisplayName",
+      "policyPrApprovers"
+    ]
 }

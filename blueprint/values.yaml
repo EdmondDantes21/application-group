@@ -10,3 +10,11 @@ developersList:
   - "alice"
   - "bob"
   - "charlie"
+prApproversList:
+  - "dave"
+  - "eve"
+  - "frank"
+approversList:
+  - "grace"
+  - "heidi"
+  - "ivan"
