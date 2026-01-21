@@ -18,3 +18,34 @@ approversList:
   - "grace"
   - "heidi"
   - "ivan"
+
+namespace: demo-system
+
+serviceAccountName: my-app-sa
+
+nameOverride: ""
+fullnameOverride: ""
+
+webhook:
+  enabled: true
+  path: /mutate
+
+priorityClass:
+  enabled: true
+  value: 100000
+  globalDefault: false
+  description: "Priority class for Helm-managed workloads"
+
+crd:
+  enabled: true
+  group: example.com
+  kind: Widget
+  plural: widgets
+  singular: widget
+  shortNames:
+    - wd
+  version: v1
+
+rbac:
+  enabled: true
+  clusterRoleNameSuffix: reade
