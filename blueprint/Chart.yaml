@@ -22,3 +22,8 @@ version: v1-5-0-rc-5
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "v1-5-0-rc-5"
+
+dependencies:
+- name: portal-composition-page-generic
+  version: "1.4.0"
+  repository: "https://marketplace.krateo.io"
