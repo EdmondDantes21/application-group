@@ -49,11 +49,17 @@
           "title": "username",
           "type": "string"
         },
-        "version": {
+        "appVersion": {
           "default": "25.0.0",
           "description": "version of the WordPress application",
-          "enum": ["v24_2_11", "v25_0_0", "v27_1_1", "v27_1_2", "v27_1_3"],
-          "title": "version",
+          "enum": [
+            "v24_2_11",
+            "v25_0_0",
+            "v27_1_1",
+            "v27_1_2",
+            "v27_1_3"
+          ],
+          "title": "appVersion",
           "type": "string"
         }
       },
@@ -62,7 +68,7 @@
         "username",
         "password",
         "urlapplicativo",
-        "version"
+        "appVersion"
       ],
       "title": "WordPress",
       "type": "object"
