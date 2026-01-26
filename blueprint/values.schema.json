@@ -57,7 +57,8 @@
             "27_1_3"
           ],
           "title": "version",
-          "type": "string"
+          "type": "string",
+          "x-crdgen-identifier-name": "Version1"
         }
       },
       "title": "WordPress",
