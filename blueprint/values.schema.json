@@ -47,18 +47,14 @@
           "type": "string"
         },
         "version": {
-          "default": "25.0.0",
+          "default": "ciao",
           "description": "version of the WordPress application",
           "enum": [
-            "24.2.11",
-            "25.0.0",
-            "27.1.1",
-            "27.1.2",
-            "27.1.3"
+            "ciao",
+            "mondo"
           ],
           "title": "version",
-          "type": "string",
-          "x-crdgen-identifier-name": "Version1"
+          "type": "string"
         }
       },
       "title": "WordPress",
