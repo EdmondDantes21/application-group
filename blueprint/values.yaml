@@ -1,51 +1,21 @@
-applicationGroupDisplayName: "My Application Group"
-applicationGroupName: "my-application-group"
-applicationName: "my-application"
-policyPrApprovers: false
-permissions:
-  - "read"
-  - "write"
-  - "execute"
-developersList:
-  - "alice"
-  - "bob"
-  - "charlie"
-prApproversList:
-  - "dave"
-  - "eve"
-  - "frank"
-approversList:
-  - "grace"
-  - "heidi"
-  - "ivan"
+# Base configuration
+Base:
+  # GCP Project ID where the application will be deployed
+  ProjectID: "progetto-1"
 
-namespace: demo-system
+# WordPress application parameters
+WordPress:
+  # Namespace where the application will be deployed
+  namespace: "namespacewordpress"
 
-serviceAccountName: my-app-sa
+  # WordPress username
+  username: "wordpress_user"
 
-nameOverride: ""
-fullnameOverride: ""
+  # WordPress password (change this before deploying)
+  password: "changeme"
 
-webhook:
-  enabled: true
-  path: /mutate
+  # URL of the WordPress application
+  urlapplicativo: "inserireurlapplicativo"
 
-priorityClass:
-  enabled: true
-  value: 100000
-  globalDefault: false
-  description: "Priority class for Helm-managed workloads"
-
-crd:
-  enabled: true
-  group: example.com
-  kind: Widget
-  plural: widgets
-  singular: widget
-  shortNames:
-    - wd
-  version: v1
-
-rbac:
-  enabled: true
-  clusterRoleNameSuffix: reade
+  # WordPress version
+  version: "25.0.0"

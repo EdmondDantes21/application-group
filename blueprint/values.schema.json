@@ -2,264 +2,70 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": true,
   "properties": {
-    "applicationGroupDisplayName": {
-      "default": "My Application Group",
-      "title": "applicationGroupDisplayName",
-      "type": "string"
-    },
-    "applicationGroupName": {
-      "default": "my-application-group",
-      "title": "applicationGroupName",
-      "type": "string"
-    },
-    "applicationName": {
-      "default": "my-application",
-      "title": "applicationName",
-      "type": "string"
-    },
-    "approversList": {
-      "items": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "string"
-          },
-          {
-            "type": "string"
-          }
-        ]
-      },
-      "title": "approversList",
-      "type": "array"
-    },
-    "crd": {
+    "Base": {
       "additionalProperties": false,
       "properties": {
-        "enabled": {
-          "default": true,
-          "title": "enabled",
-          "type": "boolean"
-        },
-        "group": {
-          "default": "example.com",
-          "title": "group",
+        "ProjectID": {
+          "default": "progetto-1",
+          "description": "GCP Project ID where the application will be deployed",
+          "enum": [
+            "progetto-1"
+          ],
+          "title": "ProjectID",
+          "type": "string"
+        }
+      },
+      "title": "Base",
+      "type": "object"
+    },
+    "WordPress": {
+      "additionalProperties": false,
+      "description": "WordPress application parameters section",
+      "properties": {
+        "namespace": {
+          "default": "namespacewordpress",
+          "description": "namespace where the application will be deployed",
+          "title": "namespace",
           "type": "string"
         },
-        "kind": {
-          "default": "Widget",
-          "title": "kind",
+        "password": {
+          "default": "namespacewordpress",
+          "description": "Password utente",
+          "title": "password",
           "type": "string"
         },
-        "plural": {
-          "default": "widgets",
-          "title": "plural",
+        "urlapplicativo": {
+          "default": "inserireurlapplicativo",
+          "description": "URL dell'applicativo",
+          "title": "urlapplicativo",
           "type": "string"
         },
-        "shortNames": {
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              }
-            ]
-          },
-          "title": "shortNames",
-          "type": "array"
-        },
-        "singular": {
-          "default": "widget",
-          "title": "singular",
+        "username": {
+          "default": "namespacewordpress",
+          "description": "Nome utente",
+          "title": "username",
           "type": "string"
         },
         "version": {
-          "default": "v1",
+          "default": "25.0.0",
+          "description": "version of the WordPress application",
+          "enum": [
+            "24.2.11",
+            "25.0.0",
+            "27.1.1",
+            "27.1.2",
+            "27.1.3"
+          ],
           "title": "version",
           "type": "string"
         }
       },
-      "required": [
-        "enabled",
-        "group",
-        "kind",
-        "plural",
-        "singular",
-        "shortNames",
-        "version"
-      ],
-      "title": "crd",
-      "type": "object"
-    },
-    "developersList": {
-      "items": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "string"
-          },
-          {
-            "type": "string"
-          }
-        ]
-      },
-      "title": "developersList",
-      "type": "array"
-    },
-    "fullnameOverride": {
-      "default": "",
-      "title": "fullnameOverride",
-      "type": "string"
-    },
-    "nameOverride": {
-      "default": "",
-      "title": "nameOverride",
-      "type": "string"
-    },
-    "namespace": {
-      "default": "demo-system",
-      "title": "namespace",
-      "type": "string"
-    },
-    "permissions": {
-      "items": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "string"
-          },
-          {
-            "type": "string"
-          }
-        ]
-      },
-      "title": "permissions",
-      "type": "array"
-    },
-    "policyPrApprovers": {
-      "default": false,
-      "title": "policyPrApprovers",
-      "type": "boolean"
-    },
-    "prApproversList": {
-      "items": {
-        "anyOf": [
-          {
-            "type": "string"
-          },
-          {
-            "type": "string"
-          },
-          {
-            "type": "string"
-          }
-        ]
-      },
-      "title": "prApproversList",
-      "type": "array"
-    },
-    "priorityClass": {
-      "additionalProperties": false,
-      "properties": {
-        "description": {
-          "default": "Priority class for Helm-managed workloads",
-          "title": "description",
-          "type": "string"
-        },
-        "enabled": {
-          "default": true,
-          "title": "enabled",
-          "type": "boolean"
-        },
-        "globalDefault": {
-          "default": false,
-          "title": "globalDefault",
-          "type": "boolean"
-        },
-        "value": {
-          "default": 100000,
-          "title": "value",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "enabled",
-        "value",
-        "globalDefault",
-        "description"
-      ],
-      "title": "priorityClass",
-      "type": "object"
-    },
-    "rbac": {
-      "additionalProperties": false,
-      "properties": {
-        "clusterRoleNameSuffix": {
-          "default": "reade",
-          "title": "clusterRoleNameSuffix",
-          "type": "string"
-        },
-        "enabled": {
-          "default": true,
-          "title": "enabled",
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "enabled",
-        "clusterRoleNameSuffix"
-      ],
-      "title": "rbac",
-      "type": "object"
-    },
-    "serviceAccountName": {
-      "default": "my-app-sa",
-      "title": "serviceAccountName",
-      "type": "string"
-    },
-    "webhook": {
-      "additionalProperties": false,
-      "properties": {
-        "enabled": {
-          "default": true,
-          "title": "enabled",
-          "type": "boolean"
-        },
-        "path": {
-          "default": "/mutate",
-          "title": "path",
-          "type": "string"
-        }
-      },
-      "required": [
-        "enabled",
-        "path"
-      ],
-      "title": "webhook",
+      "title": "WordPress",
       "type": "object"
     }
   },
   "required": [
-    "applicationGroupDisplayName",
-    "applicationGroupName",
-    "applicationName",
-    "policyPrApprovers",
-    "permissions",
-    "developersList",
-    "prApproversList",
-    "approversList",
-    "namespace",
-    "serviceAccountName",
-    "nameOverride",
-    "fullnameOverride",
-    "webhook",
-    "priorityClass",
-    "crd",
-    "rbac"
+    "Base"
   ],
   "type": "object"
 }
