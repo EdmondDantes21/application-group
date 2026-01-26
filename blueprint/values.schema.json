@@ -15,6 +15,9 @@
           "type": "string"
         }
       },
+      "required": [
+        "ProjectID"
+      ],
       "title": "Base",
       "type": "object"
     },
@@ -54,6 +57,13 @@
           "type": "string"
         }
       },
+      "required": [
+        "namespace",
+        "username",
+        "password",
+        "urlapplicativo",
+        "version"
+      ],
       "title": "WordPress",
       "type": "object"
     }
