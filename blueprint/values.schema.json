@@ -47,11 +47,11 @@
           "type": "string"
         },
         "version": {
-          "default": "ciao",
+          "default": "1.2.3",
           "description": "version of the WordPress application",
           "enum": [
-            "ciao",
-            "mondo"
+            "1.2.3",
+            "3.4.5"
           ],
           "title": "version",
           "type": "string",
