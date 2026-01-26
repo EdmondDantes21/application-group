@@ -50,7 +50,7 @@
           "type": "string"
         },
         "appVersion": {
-          "default": "25.0.0",
+          "default": "v25_0_0",
           "description": "version of the WordPress application",
           "enum": [
             "v24_2_11",

@@ -18,4 +18,4 @@ WordPress:
   urlapplicativo: "inserireurlapplicativo"
 
   # WordPress version
-  version: "25.0.0"
+  version: "25_0_0"
