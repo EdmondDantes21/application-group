@@ -47,14 +47,14 @@
           "type": "string"
         },
         "version": {
-          "default": "1.2.3",
+          "default": "123",
           "description": "version of the WordPress application",
           "enum": [
-            "1.2.3",
-            "25_0_0",
-            "5.8.1",
-            "5.9.3",
-            "6.0.2"
+            "123",
+            "2500",
+            "581",
+            "593",
+            "602"
           ],
           "title": "version",
           "type": "string",
