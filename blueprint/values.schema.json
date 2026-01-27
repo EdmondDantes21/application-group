@@ -1,73 +1,73 @@
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "additionalProperties": true,
-  "properties": {
-    "Base": {
-      "additionalProperties": false,
-      "properties": {
-        "ProjectID": {
-          "default": "progetto-1",
-          "description": "GCP Project ID where the application will be deployed",
-          "enum": [
-            "progetto-1"
-          ],
-          "title": "ProjectID",
-          "type": "string"
-        }
+  {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": true,
+    "properties": {
+      "Base": {
+        "additionalProperties": false,
+        "properties": {
+          "ProjectID": {
+            "default": "progetto-1",
+            "description": "GCP Project ID where the application will be deployed",
+            "enum": [
+              "progetto-1"
+            ],
+            "title": "ProjectID",
+            "type": "string"
+          }
+        },
+        "title": "Base",
+        "type": "object"
       },
-      "title": "Base",
-      "type": "object"
+      "WordPress": {
+        "additionalProperties": false,
+        "description": "WordPress application parameters section",
+        "properties": {
+          "namespace": {
+            "default": "namespacewordpress",
+            "description": "namespace where the application will be deployed",
+            "title": "namespace",
+            "type": "string"
+          },
+          "password": {
+            "default": "namespacewordpress",
+            "description": "Password utente",
+            "title": "password",
+            "type": "string"
+          },
+          "urlapplicativo": {
+            "default": "inserireurlapplicativo",
+            "description": "URL dell'applicativo",
+            "title": "urlapplicativo",
+            "type": "string"
+          },
+          "username": {
+            "default": "namespacewordpress",
+            "description": "Nome utente",
+            "title": "username",
+            "type": "string"
+          },
+          "version": {
+            "default": "1.2.3",
+            "description": "version of the WordPress application",
+            "enum": [
+              "1.2.3",
+              "2.5.0.0",
+              "5.8.1",
+              "5.9.3",
+              "6.0.2"
+            ],
+            "title": "version",
+            "type": "string",
+            "x-crdgen-identifier-name": "Version1"
+          }
+        },
+        "title": "WordPress",
+        "type": "object"
+      }
     },
-    "WordPress": {
-      "additionalProperties": false,
-      "description": "WordPress application parameters section",
-      "properties": {
-        "namespace": {
-          "default": "namespacewordpress",
-          "description": "namespace where the application will be deployed",
-          "title": "namespace",
-          "type": "string"
-        },
-        "password": {
-          "default": "namespacewordpress",
-          "description": "Password utente",
-          "title": "password",
-          "type": "string"
-        },
-        "urlapplicativo": {
-          "default": "inserireurlapplicativo",
-          "description": "URL dell'applicativo",
-          "title": "urlapplicativo",
-          "type": "string"
-        },
-        "username": {
-          "default": "namespacewordpress",
-          "description": "Nome utente",
-          "title": "username",
-          "type": "string"
-        },
-        "version": {
-          "default": "123",
-          "description": "version of the WordPress application",
-          "enum": [
-            "123",
-            "2500",
-            "581",
-            "593",
-            "602"
-          ],
-          "title": "version",
-          "type": "string",
-          "x-crdgen-identifier-name": "Version1"
-        }
-      },
-      "title": "WordPress",
-      "type": "object"
-    }
-  },
-  "required": [
-    "Base"
-  ],
-  "type": "object"
-}
+    "required": [
+      "Base"
+    ],
+    "type": "object"
+  }
 
