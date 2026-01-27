@@ -59,6 +59,19 @@
             "title": "version",
             "type": "string",
             "x-crdgen-identifier-name": "Version1"
+          },
+          "version2": {
+            "default": 1,
+            "description": "version of the WordPress application",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "title": "version",
+            "type": "string"
           }
         },
         "title": "WordPress",
