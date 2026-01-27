@@ -71,7 +71,7 @@
               5
             ],
             "title": "version",
-            "type": "string"
+            "type": "integer"
           }
         },
         "title": "WordPress",
