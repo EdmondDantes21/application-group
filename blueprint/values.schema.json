@@ -1,73 +1,73 @@
-  {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "additionalProperties": true,
-    "properties": {
-      "Base": {
-        "additionalProperties": false,
-        "properties": {
-          "ProjectID": {
-            "default": "progetto-1",
-            "description": "GCP Project ID where the application will be deployed",
-            "enum": [
-              "progetto-1"
-            ],
-            "title": "ProjectID",
-            "type": "string"
-          }
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "AppConfig": {
+      "additionalProperties": false,
+      "description": "WordPress application parameters section",
+      "properties": {
+        "namespace": {
+          "default": "namespacewordpress",
+          "description": "namespace where the application will be deployed",
+          "title": "namespace",
+          "type": "string"
         },
-        "title": "Base",
-        "type": "object"
+        "password": {
+          "default": "namespacewordpress",
+          "description": "Password utente",
+          "title": "password",
+          "type": "string"
+        },
+        "urlapplicativo": {
+          "default": "inserireurlapplicativo",
+          "description": "URL dell'applicativo",
+          "title": "urlapplicativo",
+          "type": "string"
+        },
+        "username": {
+          "default": "namespacewordpress",
+          "description": "Nome utente",
+          "title": "username",
+          "type": "string"
+        },
+        "appVersion": {
+          "default": "v25.0.0",
+          "description": "appVersion of the WordPress application",
+          "enum": [
+            "v24.2.11",
+            "v25.0.0",
+            "v27.1.1",
+            "v27.1.2",
+            "v27.1.3"
+          ],
+          "title": "appVersion",
+          "type": "string"
+        }
       },
-      "WordPress": {
-        "additionalProperties": false,
-        "description": "WordPress application parameters section",
-        "properties": {
-          "namespace": {
-            "default": "namespacewordpress",
-            "description": "namespace where the application will be deployed",
-            "title": "namespace",
-            "type": "string"
-          },
-          "password": {
-            "default": "namespacewordpress",
-            "description": "Password utente",
-            "title": "password",
-            "type": "string"
-          },
-          "urlapplicativo": {
-            "default": "inserireurlapplicativo",
-            "description": "URL dell'applicativo",
-            "title": "urlapplicativo",
-            "type": "string"
-          },
-          "username": {
-            "default": "namespacewordpress",
-            "description": "Nome utente",
-            "title": "username",
-            "type": "string"
-          },
-          "version": {
-            "default": "v1.2.3",
-            "description": "version of the WordPress application",
-            "enum": [
-              "v1.2.3",
-              "v2.5.0.0",
-              "v5.8.1",
-              "v5.9.3",
-              "v6.0.2"
-            ],
-            "title": "version",
-            "type": "string",
-            "x-crdgen-identifier-name": "Version1"
-          }
-        },
-        "title": "WordPress",
-        "type": "object"
-      }
+      "title": "AppConfig",
+      "type": "object"
     },
-    "required": [
-      "Base"
-    ],
-    "type": "object"
-  }
-
+    "Base": {
+      "additionalProperties": false,
+      "description": "Base parameters section",
+      "properties": {
+        "ProjectID": {
+          "default": "sigemi-prod",
+          "description": "GCP Project ID where the application will be deployed",
+          "enum": [
+            "sigemi-prod"
+          ],
+          "title": "ProjectID",
+          "type": "string"
+        }
+      },
+      "title": "Base",
+      "type": "object",
+      "x-crdgen-identifier-name": "Version1"
+    }
+  },
+  "required": [
+    "global"
+  ],
+  "type": "object"
+}
