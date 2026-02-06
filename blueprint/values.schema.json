@@ -4,70 +4,62 @@
   "properties": {
     "AppConfig": {
       "additionalProperties": false,
-      "description": "WordPress application parameters section",
       "properties": {
+        "appVersion": {
+          "default": "v25.0.0",
+          "title": "appVersion",
+          "type": "string"
+        },
         "namespace": {
           "default": "namespacewordpress",
-          "description": "namespace where the application will be deployed",
           "title": "namespace",
           "type": "string"
         },
         "password": {
           "default": "namespacewordpress",
-          "description": "Password utente",
           "title": "password",
           "type": "string"
         },
         "urlapplicativo": {
           "default": "inserireurlapplicativo",
-          "description": "URL dell'applicativo",
           "title": "urlapplicativo",
           "type": "string"
         },
         "username": {
           "default": "namespacewordpress",
-          "description": "Nome utente",
           "title": "username",
-          "type": "string"
-        },
-        "appVersion": {
-          "default": "v25.0.0",
-          "description": "appVersion of the WordPress application",
-          "enum": [
-            "v24.2.11",
-            "v25.0.0",
-            "v27.1.1",
-            "v27.1.2",
-            "v27.1.3"
-          ],
-          "title": "appVersion",
           "type": "string"
         }
       },
+      "required": [
+        "namespace",
+        "username",
+        "password",
+        "urlapplicativo",
+        "appVersion"
+      ],
       "title": "AppConfig",
       "type": "object"
     },
     "Base": {
       "additionalProperties": false,
-      "description": "Base parameters section",
       "properties": {
         "ProjectID": {
           "default": "sigemi-prod",
-          "description": "GCP Project ID where the application will be deployed",
-          "enum": [
-            "sigemi-prod"
-          ],
           "title": "ProjectID",
           "type": "string"
         }
       },
+      "required": [
+        "ProjectID"
+      ],
       "title": "Base",
-      "type": "object",
-      "x-crdgen-identifier-name": "Version1"
+      "type": "object"
     }
   },
   "required": [
-    "global"
+    "AppConfig",
+    "Base"
   ],
-  "type": "object"
+  "type": "objectssss"
 }
