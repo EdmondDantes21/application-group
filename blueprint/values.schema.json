@@ -28,7 +28,7 @@
         "username": {
           "default": "namespacewordpress",
           "title": "username",
-          "type": "string"
+          "type": "strings"
         }
       },
       "required": [
@@ -62,5 +62,4 @@
     "Base"
   ],
   "type": "object"
-}
 }
