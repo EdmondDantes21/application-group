@@ -1,12 +1,13 @@
-apiVersion: composition.krateo.io/vv1-5-0-rc-5
+apiVersion: composition.krateo.io/v1-0-0
 kind: ApplicationGroup
 metadata:
-  name: jb-0108
-  namespace: application-group
+  name: test-01
 spec:
-  applicationGroupDisplayName: "JB-0108 Application Group"
-  applicationGroupName: "jb-0108"
-  applicationName: "jb-0108"
-  developersList: []
-  permissions: []
-  policyPrApprovers: true
+  AppConfig:
+    namespace: asd-asd
+    username: asd-asd
+    password: asd-asd
+    urlapplicativo: qualcosa
+    appVersion: v25.0.0
+  Base:
+    ProjectID: sigemi-prod
