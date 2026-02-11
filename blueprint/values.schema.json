@@ -47,7 +47,7 @@
         "ProjectID": {
           "default": "sigemi-prod",
           "title": "ProjectID",
-          "type": "strings"
+          "type": "string"
         }
       },
       "required": [
