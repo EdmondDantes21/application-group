@@ -1,7 +1,8 @@
-apiVersion: composition.krateo.io/v1-0-1
+apiVersion: composition.krateo.io/v2-0-1
 kind: ApplicationGroup
 metadata:
-  name: test-01
+  name: application-group-01
+  namespace: demo-system
 spec:
   AppConfig:
     namespace: asd-asd
@@ -10,4 +11,4 @@ spec:
     urlapplicativo: qualcosa
     appVersion: v25.0.0
   Base:
-    ProjectID: sigemi-prod
+    ProjectID: sigemi
