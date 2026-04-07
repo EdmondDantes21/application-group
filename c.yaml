@@ -1,7 +1,7 @@
 apiVersion: composition.krateo.io/v2-0-1
 kind: ApplicationGroup
 metadata:
-  name: application-group-01
+  name: application-group-02
   namespace: demo-system
 spec:
   AppConfig:
