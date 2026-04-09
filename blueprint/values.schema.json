@@ -45,10 +45,10 @@
       "additionalProperties": false,
       "properties": {
         "ProjectID": {
-          "default": "sigemi-prod",
+          "default": "sigemi",
           "title": "ProjectID",
           "type": "string",
-          "maxLength": 10
+          "maxLength": 32
         }
       },
       "required": [
