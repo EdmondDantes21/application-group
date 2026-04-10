@@ -7,4 +7,4 @@ spec:
   chart:
     repo: application-group
     url: oci://ghcr.io/edmonddantes21/application-group
-    version: "2.0.1"
+    version: "10.0.0"
