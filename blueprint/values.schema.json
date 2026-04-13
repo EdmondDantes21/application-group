@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": true,
+  "properties": {
+    "Base": {
+      "additionalProperties": true,
+      "description": "Base parameters section",
+      "properties": {
+        "ProjectID": {
+          "default": "sigemi-prod",
+          "description": "GCP Project ID where the application will be deployed",
+          "enum": [
+            "sigemi-prod"
+          ],
+          "title": "ProjectID",
+          "type": "string"
+        }
+      },
+      "title": "Base",
+      "type": "object"
+    },
+    "global": {
+      "additionalProperties": true,
+      "properties": {
+        "projectLocation": {
+          "enum": [
+            "europe-west4"
+          ],
+          "default": "europe-west4",
+          "title": "projectLocation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "projectLocation"
+      ],
+      "title": "global",
+      "type": "object"
+    },
+    "repository": {
+      "additionalProperties": false,
+      "description": "Repository section",
+      "properties": {
+        "NomeRepository": {
+          "default": "my-carbus-repo",
+          "description": "Repository name",
+          "title": "NomeRepository",
+          "type": "string"
+        },
+        "branchName": {
+          "default": "master",
+          "description": "Branch name",
+          "title": "branchName",
+          "type": "string"
+        }
+      },
+      "title": "repository",
+      "type": "object"
+    }
+  },
+  "required": [
+    "argocd",
+    "global"
+  ],
+  "type": "object"
+}
