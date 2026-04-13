@@ -2,65 +2,64 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "additionalProperties": true,
   "properties": {
-    "Base": {
+    "AppConfig": {
       "additionalProperties": true,
-      "description": "Base parameters section",
       "properties": {
-        "ProjectID": {
-          "default": "sigemi-prod",
-          "description": "GCP Project ID where the application will be deployed",
-          "enum": [
-            "sigemi-prod"
-          ],
-          "title": "ProjectID",
+        "appVersion": {
+          "default": "v25.0.0",
+          "title": "appVersion",
           "type": "string"
-        }
-      },
-      "title": "Base",
-      "type": "object"
-    },
-    "global": {
-      "additionalProperties": true,
-      "properties": {
-        "projectLocation": {
-          "enum": [
-            "europe-west4"
-          ],
-          "default": "europe-west4",
-          "title": "projectLocation",
+        },
+        "namespace": {
+          "default": "namespacewordpress",
+          "title": "namespace",
+          "type": "string"
+        },
+        "password": {
+          "default": "namespacewordpress",
+          "title": "password",
+          "type": "string"
+        },
+        "urlapplicativo": {
+          "default": "inserireurlapplicativo",
+          "title": "urlapplicativo",
+          "type": "string"
+        },
+        "username": {
+          "default": "namespacewordpress",
+          "title": "username",
           "type": "string"
         }
       },
       "required": [
-        "projectLocation"
+        "namespace",
+        "username",
+        "password",
+        "urlapplicativo",
+        "appVersion"
       ],
-      "title": "global",
+      "title": "AppConfig",
       "type": "object"
     },
-    "repository": {
-      "additionalProperties": false,
-      "description": "Repository section",
+    "Base": {
+      "additionalProperties": true,
       "properties": {
-        "NomeRepository": {
-          "default": "my-carbus-repo",
-          "description": "Repository name",
-          "title": "NomeRepository",
-          "type": "string"
-        },
-        "branchName": {
-          "default": "master",
-          "description": "Branch name",
-          "title": "branchName",
+        "ProjectID": {
+          "default": "sigemi-prod",
+          "title": "ProjectID",
           "type": "string"
         }
       },
-      "title": "repository",
+      "required": [
+        "ProjectID"
+      ],
+      "title": "Base",
       "type": "object"
     }
   },
   "required": [
-    "argocd",
-    "global"
+    "AppConfig",
+    "Base"
   ],
   "type": "object"
 }
